@@ -20,6 +20,7 @@ jobs:
       - name: Build the Docker image
         run: |
           docker login --username=${{ secrets.DOCKER_USERNAME }} registry.cn-hangzhou.aliyuncs.com --password=${{ secrets.DOCKER_PASSWORD }}
+          ls .
           docker build -t test:latest .
           docker tag test registry.cn-hangzhou.aliyuncs.com/lbtest/test:latest
           docker push registry.cn-hangzhou.aliyuncs.com/lbtest/test:latest
