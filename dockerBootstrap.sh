@@ -18,5 +18,5 @@ echo -e "---------创建容器并运行容器--------"
 # -p: 端口映射，本机端口:容器端口
 # --name: 指定容器名称
 # 最后一个为镜像名称
-docker run --rm -d -p 8080:80 --name test registry.cn-hangzhou.aliyuncs.com/lbtest/test:latest
+docker run --rm -d -p 8081:80 --name test registry.cn-hangzhou.aliyuncs.com/lbtest/test:latest
 echo -e "---------执行完毕--------"
