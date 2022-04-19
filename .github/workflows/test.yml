@@ -20,7 +20,7 @@ jobs:
       - name: Build the Docker image
         run: |
           docker login --username=${{ secrets.DOCKER_USERNAME }} registry.cn-hangzhou.aliyuncs.com --password=${{ secrets.DOCKER_PASSWORD }}
-          docker build -t test:latest .
+          docker build -t test:latest ..
           docker tag test registry.cn-hangzhou.aliyuncs.com/lbtest/test:latest
           docker push registry.cn-hangzhou.aliyuncs.com/lbtest/test:latest
       - name: ssh docker login
@@ -29,4 +29,4 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
-          script: cd /home/test/ && sh test.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
+          script: cd /home/test/ && sh dockerBootstrap.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
